@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="layout">
+<head>
+<meta charset="utf-8"/>
+<title>Documents</title>
+<link rel="stylesheet" type="text/css"
+href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"/>
+</head>
+<body>
+<div layout:fragment="content">
+<div class="container" >
+<div class="panel panel-default">
+<div class="panel panel-heading">Confirmation</div>
+<div class="panel panel-body">
+<h3 class="red">vous n'avez pas le droit d'acceder à cette ressource</h3>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

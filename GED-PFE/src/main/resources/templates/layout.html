@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="ISO-8859-1">
+<title>Index</title>
+<link rel="stylesheet" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-light navbar-primary">
+  <!-- Brand -->
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    
+    <li></li>
+   
+     <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
+      <a class="nav-link" href="/users">Utilisateurs</a>
+    </li>
+     <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
+      <a class="nav-link" href="/roles">Roles</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/index">Documents</a>
+    </li>
+   
+     <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
+      <a class="nav-link" href="/typeDocs">Type de Documents</a>
+    </li>
+     <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
+      <a class="nav-link" href="/groupes">Groupes</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="#">Partage des Documents</a>
+    </li>
+    
+</ul>
+<ul class="navbar-nav ml-auto" >
+    <!-- Dropdown -->
+     <li class="nav-item dropdown" >
+   
+      <a class="nav-link" href="/chat">Cyber-Parc-Chat</a>
+       
+    </li>
+   
+    <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+         <span sec:authentication="name"></span>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" th:href="@{/logout}">Logout</a>
+        <a class="dropdown-item" th:href="@{/changePassword}">Change Password</a>
+      
+      </div>
+    </li>
+      <li> <img th:src="@{/images/logoSociete.png}" height="50"/></li>
+   <!--   <li class="nav-item" sec:authorize="isAnonymous()">
+    <a class="nav-link" href="/sso/login">login</a>
+    </li>-->
+  </ul>
+</nav>
+<section layout:fragment="content">
+</section>
+
+</body>
+</html>

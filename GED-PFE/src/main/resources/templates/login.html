@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+
+<title>GED-APP</title>
+</head>
+<body>
+<div th:if="${msg}">
+<span th:text="${msg}"></span>
+</div>
+<p></p>
+<div class="row">
+<div class="col-md-4 col-md-offset-3 col-xs-12 "></div>
+<div class="col-md-4 col-md-offset-3 col-xs-12 ">
+<div class="card card-primary">
+<div class="card card-header bg-primary text-white">Authentification
+
+</div>
+<div class="card card-body">
+<form class="form-signin" th:action="@{/login}" method="post">
+<div class="alert alert-danger alert-dismissible fade show"
+role="alert" th:if="${param.error}">
+<p class="font-weight-light">Votre identifiant ou mot de passe
+est incorrect.</p>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${param.success}">
+<p class="font-weight-light">Vous êtes déconnecté!</p>
+</div>
+<label for="inputEmail" class="sr-only">Login</label> <input
+type="text" id="inputEmail" class="form-control" placeholder="Login"
+required autofocus name="username"> <label for="inputPassword" class="sr-only">Mot de Passe:</label> 
+<input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+<button class="btn btn-lg btn-primary btn-block" type="submit">Se Connecter</button>
+<p></p>
+<a th:href="@{/registerForm}">Register</a>
+<p class="mt-5 mb-3 text-muted">&copy; Cyber-Parc.tn-2021</p>
+</form>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+
+<!--<div class="card" style="width:400px">
+   <img class="card-img-top" src="/images/vacancia-logo.jpg">
+  </div>  -->
+</div>
+</div>
+</body>
+</html>

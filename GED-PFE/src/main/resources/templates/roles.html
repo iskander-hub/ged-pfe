@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="layout">
+<head>
+<meta charset="utf-8"/>
+<title>Roles</title>
+<link rel="stylesheet" type="text/css"
+href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<p></p>
+<div layout:fragment="content">
+<div class="container">
+<div class="card ">
+<div class="card-header bg-primary text-white">Recherche d'un Role:</div>
+<div class="card-body">
+<form th:action="@{/roles}" method="get">
+<label>Mot Clé:</label>
+<input type="text" name="mc" th:value="${mc}"/>
+<button class="btn btn-primary ">
+          <span class="glyphicon glyphicon-search"></span> Search 
+        </button>
+</form>
+</div>
+</div>
+</div>
+<p></p>
+<div class="container">
+<div class="card ">
+<div class="card-header bg-primary text-white">Liste des Roles:</div>
+<div class="card-body">
+<table class="table">
+<thead>
+<tr>
+<th>ID</th><th>RoleName</th><th><a th:href="@{/formRole}"><span class="glyphicon glyphicon-plus"></span></a></th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="p:${roles}">
+ <td th:text="${p.id}"></td>
+  <td th:text="${p.roleName}"></td>
+   
+   
+     <td><a th:href="@{/editRole(id=${p.id})}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+    <td><a onclick="return confirm('Etes vous sure de supprimer?')" th:href="@{/deleteRole(id=${p.id},page=${pageCourante},size=${size},mc=${mc})}"><span class="glyphicon glyphicon-remove"></span></a></td>
+ 
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="container">
+<ul class="nav nav-pills" >
+<li th:class="${pageCourante}==${status.index}?'active':''" th:each="page,status:${pages}" >
+<a th:href="@{/roles(page=${status.index},size=${size},mc=${mc})}" th:text="${status.index}"></a>
+</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

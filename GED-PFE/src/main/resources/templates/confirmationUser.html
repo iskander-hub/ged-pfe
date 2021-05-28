@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="layout">
+<head>
+<meta charset="utf-8"/>
+<title>Users</title>
+<link rel="stylesheet" type="text/css"
+href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"/>
+</head>
+<body>
+<div layout:fragment="content">
+<div class="container" >
+<div class="card ">
+<div class="card-header bg-primary text-white">Confirmation:</div>
+<div class="card-body">
+<div class="form-group">
+<label>ID:</label>
+<label th:text="${user.id}"></label>
+</div>
+<div class="form-group">
+<label>UserName:</label>
+<label th:text="${user.username}"></label>
+</div>
+<div class="form-group">
+<label>Password:</label>
+<label th:text="${user.password}"></label>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+
+<title>GED-Vaccancia</title>
+</head>
+<body>
+
+<div class="spacer col-md-6 col-xs-12">
+<div class="card text-black bg-primary mb-3" >
+<div class="card card-header">Registration:</div>
+<div class="card card-body">
+<form id="register" name="register" th:action="@{/register}" method="post">
+<div class="form-group">
+<label class="control-label">UserName:</label>
+<input class="form-control" type="text" name="username"
+required/>
+
+</div>
+<div class="form-group">
+<label class="control-label">Password:</label>
+<input class="form-control" type="password" name="password"
+ required/>
+
+</div>
+<div class="form-group">
+<label class="control-label">Confirmer Password:</label>
+<input class="form-control" type="password" name="repassword"
+ required/>
+
+</div>
+<div>
+<button type="submit" class="btn btn-primary">Save</button>
+</div>
+<p></p>
+
+<p></p>
+<a th:href="@{/login}">Retour</a>
+<p class="mt-5 mb-3 text-muted">&copy; Vaccancia.tn-2020</p>
+</form>
+</div>
+</div>
+</div>
+
+</body>
+
+
+</html>
